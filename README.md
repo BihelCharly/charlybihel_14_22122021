@@ -1,70 +1,34 @@
-# Getting Started with Create React App
+# Project 14 - WEALTH HEALTH
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+WEALTH HEALTH is a part of OpenClassrooms "Front End Developer" process.
 
-## Available Scripts
+**Useful Links:**
 
-In the project directory, you can run:
+- 📑 [Documentation](https://openclassrooms.com/fr/paths/314/projects/815/assignment)
+- 📁 [Repository](https://github.com/BihelCharly/charlybihel_14_22122021)
+- 📁 [Original Repository](https://github.com/OpenClassrooms-Student-Center/P12_Front-end)
 
-### `yarn start`
+- 📑 [Issue #1](https://github.com/OpenClassrooms-Student-Center/P12_Front-end/issues/1)
+- 📑 [Issue #2](https://github.com/OpenClassrooms-Student-Center/P12_Front-end/issues/1)
+- 📑 [Issue #3](https://github.com/OpenClassrooms-Student-Center/P12_Front-end/issues/1)
+- 📑 [Issue #4](https://github.com/OpenClassrooms-Student-Center/P12_Front-end/issues/1)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Installation
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+For this project project I worked with [React](https://reactjs.org/) + [SASS](https://sass-lang.com/documentation) + [NodeJs](https://nodejs.org/en/) v.16.13.0, [Yarn](https://classic.yarnpkg.com/en/docs/) v.1.22.15 as package manager.
 
-### `yarn test`
+#1 - Install [NodeJs](https://nodejs.org/en/download/)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+#2 - Install [Yarn](https://classic.yarnpkg.com/lang/en/docs/install/#debian-stable)
 
-### `yarn build`
+#3 - Clone or Download the project [APP](https://github.com/BihelCharly/charlybihel_14_22122021)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+#4 - Open a new terminal and install all dependencies required with `yarn install`
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+#5 - Launch the application with `yarn start`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+#6 - React will now start on your http://localhost:3000/ by default
 
-### `yarn eject`
+## Disclaimer
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Project 14 is a part of OpenClassrooms' [Front-End Developer](https://openclassrooms.com/fr/paths/314-developpeur-front-end) process. Code is free, but datas coming from the API do not belong to me and aren't under my responsibility.
