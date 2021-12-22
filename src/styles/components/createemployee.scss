@@ -1,0 +1,60 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  border-radius: 3%;
+
+  margin: 50px;
+  padding: 20px;
+  h1 {
+    margin: 0;
+    padding: 0;
+    color: rgb(93, 133, 93);
+  }
+}
+
+form {
+  padding-top: 20px;
+  padding-bottom: 50px;
+}
+
+label {
+  display: block;
+  margin-top: 1rem;
+  margin-bottom: 10px;
+}
+
+input {
+  background-color: rgba(235, 235, 235, 0.808);
+  border: white;
+  padding: 10px 45px;
+  border-radius: 20px;
+}
+
+legend {
+  color: rgb(112, 161, 112);
+}
+
+.saveButton {
+  color: white;
+  font-size: 1.2rem;
+  background-color: rgb(93, 133, 93);
+  padding: 10px 50px;
+  border-radius: 10px;
+  border-color: white;
+  cursor: pointer;
+}
+
+@media (max-width: 720px) {
+  .container {
+    width: 25%;
+  }
+}
+
+@media (min-width: 720px) {
+  .container {
+    width: 35%;
+  }
+}
