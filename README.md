@@ -1,6 +1,6 @@
-# Project 14 - WEALTH HEALTH
+# Project 14 - HRnet
 
-WEALTH HEALTH is a part of OpenClassrooms "Front End Developer" process.
+HRnet is a part of OpenClassrooms "Front End Developer" process.
 
 **Useful Links:**
 
