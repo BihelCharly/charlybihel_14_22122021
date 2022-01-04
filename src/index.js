@@ -4,7 +4,7 @@ import { HashRouter, Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Index from "./pages/Index";
-import Error404 from "./pages/Error";
+import EmployeeList from "./pages/EmployeeList";
 import reportWebVitals from "./reportWebVitals";
 import "./index.scss";
 
@@ -13,8 +13,7 @@ const Root = () => (
     <Header />
     <Routes>
       <Route exact={true} path="/" element={<Index />} />
-      <Route path="*" element={<Error404 />} />
-      <Route element={<Error404 />} />
+      <Route exact={true} path="/employees" element={<EmployeeList />} />
     </Routes>
     <Footer />
   </HashRouter>
