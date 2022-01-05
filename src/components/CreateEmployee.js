@@ -33,6 +33,8 @@ export default function FormCreateEmployee() {
   const [showModal, setShowModal] = useState(false);
 
   const handleOnSubmit = (event) => {
+    event.preventDefault();
+    setShowModal(true);
     const employee = {
       firstName: firstName,
       lastName: lastName,
@@ -45,13 +47,11 @@ export default function FormCreateEmployee() {
       departement: selectedOptionDepartement.label,
     };
     saveDataToLocalStorage(employee);
-    navigate("/employees");
-    event.preventDefault();
-    setShowModal(true);
   };
 
   const handleOnClose = () => {
     setShowModal(false);
+    navigate("/employees");
   };
 
   return (
@@ -61,6 +61,7 @@ export default function FormCreateEmployee() {
         <label htmlFor="first-name">First Name</label>
         <input
           required
+          minLength={2}
           type="text"
           id="first-name"
           onChange={(event) => setFirstName(event.target.value)}
@@ -68,6 +69,7 @@ export default function FormCreateEmployee() {
         <label htmlFor="last-name">Last Name</label>
         <input
           required
+          minLength={2}
           type="text"
           id="last-name"
           onChange={(event) => setLastName(event.target.value)}
@@ -95,6 +97,7 @@ export default function FormCreateEmployee() {
           <label htmlFor="street">Street</label>
           <input
             required
+            minLength={4}
             id="street"
             type="text"
             onChange={(event) => setStreet(event.target.value)}
@@ -102,6 +105,7 @@ export default function FormCreateEmployee() {
           <label htmlFor="city">City</label>
           <input
             required
+            minLength={3}
             id="city"
             type="text"
             onChange={(event) => setCity(event.target.value)}
@@ -119,6 +123,9 @@ export default function FormCreateEmployee() {
           <label htmlFor="zip-code">Zip Code</label>
           <input
             required
+            minLength={5}
+            maxLength={9}
+            pattern=".{5,9}"
             id="zip-code"
             type="number"
             onChange={(event) => setZipCode(event.target.value)}
@@ -126,7 +133,6 @@ export default function FormCreateEmployee() {
         </fieldset>
         <label htmlFor="department">Department</label>
         <Select
-          required
           name="departement"
           id="departement"
           defaultValue={selectedOptionDepartement}
