@@ -10,9 +10,15 @@ import "react-datepicker/dist/react-datepicker.css";
 import Select from "react-select";
 import { customStyles } from "../plugins/selectCustomStyle";
 
+const saveDataToLocalStorage = (data) => {
+  let array = [];
+  array = JSON.parse(localStorage.getItem("employee")) || [];
+  array.push(data);
+  localStorage.setItem("employee", JSON.stringify(array));
+};
+
 export default function FormCreateEmployee() {
   const navigate = useNavigate();
-
   // REACT HOOKS
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -27,9 +33,6 @@ export default function FormCreateEmployee() {
   const [showModal, setShowModal] = useState(false);
 
   const handleOnSubmit = (event) => {
-    // navigate("/employees", {
-    //   state: { firstName: firstName, lastName: lastName },
-    // });
     const employee = {
       firstName: firstName,
       lastName: lastName,
@@ -41,7 +44,7 @@ export default function FormCreateEmployee() {
       zipCode: zipCode,
       departement: selectedOptionDepartement.label,
     };
-    localStorage.setItem("employee", JSON.stringify(employee));
+    saveDataToLocalStorage(employee);
     navigate("/employees");
     event.preventDefault();
     setShowModal(true);
@@ -49,7 +52,6 @@ export default function FormCreateEmployee() {
 
   const handleOnClose = () => {
     setShowModal(false);
-    //navigate("/employees", { test: true });
   };
 
   return (

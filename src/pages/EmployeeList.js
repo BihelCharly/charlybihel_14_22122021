@@ -19,28 +19,16 @@ createTheme("custom", {
   },
 });
 
-export default function EmployeeList() {
-  // const { state } = useLocation();
-  // const { firstName, lastName } = state;
-  // console.log(firstName);
-  // console.log(lastName);
-  const getObjects = localStorage.getItem("employee");
-  const userFromStorage = JSON.parse(getObjects);
+const getAndParseStorage = () => {
+  let keys = Object.keys(localStorage),
+    index = keys.length;
+  while (index--) {
+    return JSON.parse(localStorage.getItem(keys[index]));
+  }
+};
 
-  const data = [
-    {
-      id: 1,
-      firstName: userFromStorage.firstName,
-      lastName: userFromStorage.lastName,
-      birthDate: userFromStorage.birthDate,
-      startDate: userFromStorage.startDate,
-      street: userFromStorage.street,
-      city: userFromStorage.city,
-      usState: userFromStorage.selectedOptionState,
-      zipCode: userFromStorage.zipCode,
-      departement: userFromStorage.selectedOptionDepartement,
-    },
-  ];
+export default function EmployeeList() {
+  const data = getAndParseStorage();
 
   const columns = [
     {
