@@ -1,15 +1,17 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/components/createemployee.scss";
+//PLUGIN FROM MY PERSONNAL NPM PACKAGE
 import Modal from "./Modal";
 // REACT IMPORTED PLUGIN #1
-import { optionsDepartement, optionsState } from "../plugins/datePickerOptions";
+import { optionsDepartement, optionsState } from "../plugins/selectOptions";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 // REACT IMPORTED PLUGIN #2
 import Select from "react-select";
 import { customStyles } from "../plugins/selectCustomStyle";
 
+// TO PUSH DATAS INTO THE LOCAL STORAGE
 const saveDataToLocalStorage = (data) => {
   let array = [];
   array = JSON.parse(localStorage.getItem("employee")) || [];
@@ -32,6 +34,7 @@ export default function FormCreateEmployee() {
   const [selectedOptionState, setSelectedOptionState] = useState("");
   const [showModal, setShowModal] = useState(false);
 
+  // TRIGGER WHEN THE FORM SENDING
   const handleOnSubmit = (event) => {
     event.preventDefault();
     setShowModal(true);
@@ -42,13 +45,14 @@ export default function FormCreateEmployee() {
       startDate: startDate,
       street: street,
       city: city,
-      usState: selectedOptionState.label,
+      usState: selectedOptionState.value,
       zipCode: zipCode,
       departement: selectedOptionDepartement.label,
     };
     saveDataToLocalStorage(employee);
   };
 
+  // TRIGGER WHEN THE MODAL CLOSING
   const handleOnClose = () => {
     setShowModal(false);
     navigate("/employees");
@@ -123,9 +127,6 @@ export default function FormCreateEmployee() {
           <label htmlFor="zip-code">Zip Code</label>
           <input
             required
-            minLength={5}
-            maxLength={9}
-            pattern=".{5,9}"
             id="zip-code"
             type="number"
             onChange={(event) => setZipCode(event.target.value)}
@@ -144,6 +145,7 @@ export default function FormCreateEmployee() {
           Save
         </button>
       </form>
+      {/*PLUGIN FROM MY PERSONNAL NPM PACKAGE*/}
       <Modal show={showModal} onClose={handleOnClose} />
     </div>
   );

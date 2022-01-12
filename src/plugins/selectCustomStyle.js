@@ -1,3 +1,4 @@
+// CUSTOM STYLE FOR SELECT LISTS
 export const customStyles = {
   option: (provided, state) => ({
     ...provided,

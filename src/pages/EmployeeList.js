@@ -1,9 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
+// REACT IMPORTED PLUGIN #3
 import DataTable, { createTheme } from "react-data-table-component";
 import styled from "styled-components";
-//import { useLocation } from "react-router";
 
+// TO GET DATAS FROM THE LOCAL STORAGE
 const getAndParseStorage = () => {
   let keys = Object.keys(localStorage),
     index = keys.length;
@@ -13,29 +14,18 @@ const getAndParseStorage = () => {
 };
 
 export default function EmployeeList() {
-  //const data = getAndParseStorage();
-  const datas = React.useMemo(() => getAndParseStorage(), []);
-  // FILTERING
   const [filterText, setFilterText] = React.useState("");
+  const datas = getAndParseStorage();
   const filteredDatas = datas.filter(
     (item) =>
       item.lastName &&
-      item.lastName.toLowerCase().includes(filterText.toLowerCase())
+      item.lastName.toLowerCase() &&
+      item.firstName &&
+      item.firstName.toLowerCase().includes(filterText.toLowerCase())
   );
 
+  // TRIGGER AND SEND BACK THE RESULTS FROM THE FILTER
   const subHeaderSearch = React.useMemo(() => {
-    const FilterComponent = ({ filterText, onFilter }) => (
-      <React.Fragment>
-        <TextField
-          id="search"
-          type="text"
-          placeholder="Search in Last Name"
-          aria-label="Search Input"
-          value={filterText}
-          onChange={onFilter}
-        />
-      </React.Fragment>
-    );
     return (
       <FilterComponent
         onFilter={(e) => setFilterText(e.target.value)}
@@ -44,6 +34,7 @@ export default function EmployeeList() {
     );
   }, [filterText]);
 
+  // TABLE ENTRIES
   const columns = [
     {
       name: "First Name",
@@ -99,10 +90,9 @@ export default function EmployeeList() {
           <h1>Current Employees</h1>
           <table id="employee-table" className="display"></table>
           <DataTable
-            columns={columns}
             data={filteredDatas}
-            customStyles={customStyles}
-            theme="custom"
+            columns={columns}
+            persistTableHead
             fixedHeader
             fixedHeaderScrollHeight="800px"
             subHeader
@@ -110,7 +100,8 @@ export default function EmployeeList() {
             pagination
             paginationComponentOptions={paginationComponentOptions}
             responsive={true}
-            persistTableHead
+            theme="custom"
+            customStyles={customStyles}
           />
           <Link to="/" from="/employees">
             Home
@@ -121,6 +112,21 @@ export default function EmployeeList() {
   );
 }
 
+// INPUT FILTER FROM THE HEADER
+const FilterComponent = ({ filterText, onFilter }) => (
+  <React.Fragment>
+    <TextField
+      id="search"
+      type="text"
+      placeholder="Search in Last Name"
+      aria-label="Search Input"
+      value={filterText}
+      onChange={onFilter}
+    />
+  </React.Fragment>
+);
+
+// OPTIONS FOR THE PAGINATION
 const paginationComponentOptions = {
   rowsPerPageText: "Show",
   rangeSeparatorText: "de",
@@ -128,6 +134,7 @@ const paginationComponentOptions = {
   selectAllRowsItemText: "All",
 };
 
+// OPTIONS FOR THE FIELDS INSIDE THE TABLE
 const TextField = styled.input`
   height: 32px;
   width: 200px;
@@ -140,6 +147,8 @@ const TextField = styled.input`
   padding: 0 32px 0 16px;
 `;
 
+// CUSTOMIZED THEME FOR THE TABLE
+// PART 1
 createTheme("custom", {
   text: {
     fontSize: "15px",
@@ -156,7 +165,7 @@ createTheme("custom", {
     default: "green",
   },
 });
-
+// PART 2
 const customStyles = {
   rows: {
     style: {
