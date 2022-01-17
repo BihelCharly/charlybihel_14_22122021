@@ -1,4 +1,4 @@
-.container {
+.container-create {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -56,13 +56,13 @@ legend {
 }
 
 @media (max-width: 720px) {
-  .container {
-    width: 40%;
+  .container-create {
+    width: 100%;
   }
 }
 
 @media (min-width: 720px) {
-  .container {
-    width: 100%;
+  .container-create {
+    width: 40%;
   }
 }

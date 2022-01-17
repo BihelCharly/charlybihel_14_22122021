@@ -1,0 +1,27 @@
+.container-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  border-radius: 25px;
+  margin: 50px;
+  padding: 20px;
+  h1 {
+    margin: 0;
+    padding: 0;
+    color: rgb(93, 133, 93);
+  }
+}
+
+@media (max-width: 720px) {
+  .container-list {
+    width: 80%;
+  }
+}
+
+@media (min-width: 720px) {
+  .container-list {
+    width: 100%;
+  }
+}

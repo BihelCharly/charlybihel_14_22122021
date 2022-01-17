@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 // REACT IMPORTED PLUGIN #3
 import DataTable, { createTheme } from "react-data-table-component";
 import styled from "styled-components";
+import "../styles/pages/employeelist.scss";
 
 // TO GET DATAS FROM THE LOCAL STORAGE
 const getAndParseStorage = () => {
@@ -86,7 +87,7 @@ export default function EmployeeList() {
   return (
     <main>
       <section>
-        <div id="employee-div" className="container">
+        <div id="employee-div" className="container-list">
           <h1>Current Employees</h1>
           <table id="employee-table" className="display"></table>
           <DataTable

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/components/createemployee.scss";
 //PLUGIN FROM MY PERSONNAL NPM PACKAGE
-import Modal from "./Modal";
+import { Modal } from "react-simple-modal-p14";
 // REACT IMPORTED PLUGIN #1
 import { optionsDepartement, optionsState } from "../plugins/selectOptions";
 import DatePicker from "react-datepicker";
@@ -33,6 +33,7 @@ export default function FormCreateEmployee() {
     useState("");
   const [selectedOptionState, setSelectedOptionState] = useState("");
   const [showModal, setShowModal] = useState(false);
+  const setText = "Employee created !";
 
   // TRIGGER WHEN THE FORM SENDING
   const handleOnSubmit = (event) => {
@@ -59,7 +60,7 @@ export default function FormCreateEmployee() {
   };
 
   return (
-    <div className="container">
+    <div className="container-create">
       <h1>Create Employee</h1>
       <form id="create-employee" onSubmit={handleOnSubmit}>
         <label htmlFor="first-name">First Name</label>
@@ -146,7 +147,7 @@ export default function FormCreateEmployee() {
         </button>
       </form>
       {/*PLUGIN FROM MY PERSONNAL NPM PACKAGE*/}
-      <Modal show={showModal} onClose={handleOnClose} />
+      <Modal text={setText} show={showModal} onClose={handleOnClose} />
     </div>
   );
 }

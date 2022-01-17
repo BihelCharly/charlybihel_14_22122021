@@ -15,9 +15,10 @@
     "react-dropdown": "^1.9.2",
     "react-router": "^6.2.1",
     "react-router-dom": "^6.2.1",
-    "react-scripts": "5.0.0",
-    "react-select": "^5.2.1",
-    "sass": "^1.47.0",
+    "react-scripts": "^5.0.0",
+    "react-select": "^5.2.2",
+    "react-simple-modal-p14": "^1.0.2",
+    "sass": "^1.48.0",
     "styled-components": "^5.3.3",
     "ustates": "^0.1.6",
     "web-vitals": "^2.1.3"
