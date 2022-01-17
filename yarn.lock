@@ -7372,10 +7372,10 @@
     "prop-types" "^15.6.0"
     "react-transition-group" "^4.3.0"
 
-"react-simple-modal-p14@^1.0.2":
-  "integrity" "sha512-/qxh25O9jZFeMGBx2WqMrutD4rbWGNOCh1B0p5oSpeE2+Li2/sPMgv9CniqX51LcTgeYTnmZ3JukYBonIcKTHg=="
-  "resolved" "https://registry.npmjs.org/react-simple-modal-p14/-/react-simple-modal-p14-1.0.2.tgz"
-  "version" "1.0.2"
+"react-simple-modal-cb@^2.0.4":
+  "integrity" "sha512-BhUoY0ngqcAi2DtEq6Ii5HRh+yKOI+BB8ZlIILE5+2KLNH86Oeq9plq7KXKcKAzHtLPRr+iMqHqu7Hg8qdMTEA=="
+  "resolved" "https://registry.npmjs.org/react-simple-modal-cb/-/react-simple-modal-cb-2.0.4.tgz"
+  "version" "2.0.4"
 
 "react-transition-group@^4.3.0":
   "integrity" "sha512-/RNYfRAMlZwDSr6z4zNKV6xu53/e2BuaBbGhbyYIXTrmgu/bGHzmqOs7mJSJBHy9Ud+ApHx3QjrkKSp1pxvlFg=="

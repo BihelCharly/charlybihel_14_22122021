@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/components/createemployee.scss";
 //PLUGIN FROM MY PERSONNAL NPM PACKAGE
-import { Modal } from "react-simple-modal-p14";
+import { Modal } from "react-simple-modal-cb";
 // REACT IMPORTED PLUGIN #1
 import { optionsDepartement, optionsState } from "../plugins/selectOptions";
 import DatePicker from "react-datepicker";
