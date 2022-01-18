@@ -10,14 +10,9 @@ import "react-datepicker/dist/react-datepicker.css";
 // REACT IMPORTED PLUGIN #2
 import Select from "react-select";
 import { customStyles } from "../plugins/selectCustomStyle";
-
-// TO PUSH DATAS INTO THE LOCAL STORAGE
-const saveDataToLocalStorage = (data) => {
-  let array = [];
-  array = JSON.parse(localStorage.getItem("employee")) || [];
-  array.push(data);
-  localStorage.setItem("employee", JSON.stringify(array));
-};
+// FIREBASE
+import { db } from "../firebase";
+import { collection, addDoc } from "firebase/firestore";
 
 export default function FormCreateEmployee() {
   const navigate = useNavigate();
@@ -32,25 +27,32 @@ export default function FormCreateEmployee() {
   const [selectedOptionDepartement, setSelectedOptionDepartement] =
     useState("");
   const [selectedOptionState, setSelectedOptionState] = useState("");
+  // MODAL
   const [showModal, setShowModal] = useState(false);
   const setText = "Employee created !";
 
-  // TRIGGER WHEN THE FORM SENDING
-  const handleOnSubmit = (event) => {
-    event.preventDefault();
-    setShowModal(true);
-    const employee = {
+  // FIREBASE START
+  const employeesCollectionRef = collection(db, "employees");
+  const createEmployee = async () => {
+    await addDoc(employeesCollectionRef, {
       firstName: firstName,
       lastName: lastName,
-      birthDate: birthDate,
-      startDate: startDate,
+      birthDate: birthDate.toString(),
+      startDate: startDate.toString(),
       street: street,
       city: city,
       usState: selectedOptionState.value,
       zipCode: zipCode,
       departement: selectedOptionDepartement.label,
-    };
-    saveDataToLocalStorage(employee);
+    });
+  };
+  // FIREBASE END
+
+  // TRIGGER WHEN THE FORM SENDING
+  const handleOnSubmit = (event) => {
+    event.preventDefault();
+    setShowModal(true);
+    createEmployee();
   };
 
   // TRIGGER WHEN THE MODAL CLOSING

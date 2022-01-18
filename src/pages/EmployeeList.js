@@ -1,23 +1,31 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 // REACT IMPORTED PLUGIN #3
 import DataTable, { createTheme } from "react-data-table-component";
 import styled from "styled-components";
 import "../styles/pages/employeelist.scss";
-
-// TO GET DATAS FROM THE LOCAL STORAGE
-const getAndParseStorage = () => {
-  let keys = Object.keys(localStorage),
-    index = keys.length;
-  while (index--) {
-    return JSON.parse(localStorage.getItem(keys[index]));
-  }
-};
+// FIREBASE
+import { db } from "../firebase";
+import { collection, getDocs } from "firebase/firestore";
 
 export default function EmployeeList() {
+  // FIREBASE START
+  // FIREBASE HOOKS
+  const [employees, setEmployees] = useState([]);
+  const employeesCollectionRef = collection(db, "employees");
+
+  useEffect(() => {
+    const getEmployees = async () => {
+      const data = await getDocs(employeesCollectionRef);
+      setEmployees(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+    };
+    getEmployees();
+  });
+  // FIREBASE END
+
   const [filterText, setFilterText] = React.useState("");
-  const datas = getAndParseStorage();
-  const filteredDatas = datas.filter(
+
+  const filteredDatas = employees.filter(
     (item) =>
       item.lastName &&
       item.lastName.toLowerCase() &&
