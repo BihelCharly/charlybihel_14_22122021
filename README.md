@@ -15,7 +15,7 @@ HRnet is a part of OpenClassrooms "Front End Developer" process.
 
 ## Installation
 
-For this project project I worked with [React](https://reactjs.org/) + [SASS](https://sass-lang.com/documentation) + [NodeJs](https://nodejs.org/en/) v.16.13.0, [Yarn](https://classic.yarnpkg.com/en/docs/) v.1.22.17 as package manager.
+For this project project I worked with [React](https://reactjs.org/) + [SASS](https://sass-lang.com/documentation) + [NodeJs](https://nodejs.org/en/) v.16.13.0 and [Yarn](https://classic.yarnpkg.com/en/docs/) v.1.22.17 and [Firebase](https://firebase.google.com/docs).
 
 1. Install [NodeJs](https://nodejs.org/en/download/)
 2. Install [Yarn](https://classic.yarnpkg.com/lang/en/docs/install/#debian-stable)
@@ -28,7 +28,7 @@ For this project project I worked with [React](https://reactjs.org/) + [SASS](ht
 
 Plugins i used for the project :
 
-1. My own and #1 NPM Package : [react-simple-modal-cb](https://nodejs.org/en/download/)
+1. My own & #1 NPM Package : [react-simple-modal-cb](https://nodejs.org/en/download/)
 2. Data table from NPM : [react-data-table-component](https://www.npmjs.com/package/react-data-table-component)
 3. Datepicker from NPM : [react-datepicker](https://www.npmjs.com/package/react-datepicker)
 4. Dropdown from NPM : [react-dropdown](https://www.npmjs.com/package/react-dropdown)

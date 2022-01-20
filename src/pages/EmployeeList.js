@@ -3,25 +3,18 @@ import { Link } from "react-router-dom";
 // REACT IMPORTED PLUGIN #3
 import DataTable, { createTheme } from "react-data-table-component";
 import styled from "styled-components";
+// FROM FIREBASE CONFIG FILE
+import { getEmployees } from "../firebase";
+// CSS
 import "../styles/pages/employeelist.scss";
-// FIREBASE
-import { db } from "../firebase";
-import { collection, getDocs } from "firebase/firestore";
 
 export default function EmployeeList() {
-  // FIREBASE START
-  // FIREBASE HOOKS
   const [employees, setEmployees] = useState([]);
-  const employeesCollectionRef = collection(db, "employees");
 
+  /* eslint-disable */
   useEffect(() => {
-    const getEmployees = async () => {
-      const data = await getDocs(employeesCollectionRef);
-      setEmployees(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
-    };
-    getEmployees();
+    getEmployees(setEmployees);
   });
-  // FIREBASE END
 
   const [filterText, setFilterText] = React.useState("");
 

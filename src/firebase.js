@@ -1,11 +1,9 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "@firebase/firestore";
+import { collection, addDoc, getDocs } from "firebase/firestore";
 
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
-
-// Your web app's Firebase configuration
+// FIREBASE KEY
 const firebaseConfig = {
   apiKey: "AIzaSyCMfIL5Hg7yaULmya3dHYKs4sJcdaOFHuU",
   authDomain: "ocp14-65291.firebaseapp.com",
@@ -15,8 +13,42 @@ const firebaseConfig = {
   appId: "1:977104145774:web:a6f06f1d79a7f3eef5857f",
 };
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
+// FIREBASE INIT
+initializeApp(firebaseConfig);
 
-// Database
+// DATABASE LOG
 export const db = getFirestore();
+
+// FIRESTORE COLLECTION
+const employeesCollectionRef = collection(db, "employees");
+
+// EXPORTED FUNCTION TO ADD A NEW EMPLOYEE
+export const createEmployee = async (
+  firstName,
+  lastName,
+  birthDate,
+  startDate,
+  street,
+  city,
+  zipCode,
+  selectedOptionDepartement,
+  selectedOptionState
+) => {
+  await addDoc(employeesCollectionRef, {
+    firstName: firstName,
+    lastName: lastName,
+    birthDate: birthDate.toString(),
+    startDate: startDate.toString(),
+    street: street,
+    city: city,
+    usState: selectedOptionState.value,
+    zipCode: zipCode,
+    departement: selectedOptionDepartement.label,
+  });
+};
+
+// EXPORTED FUNCTION TO DISPLAY ALL EMPLOYEES
+export const getEmployees = async (setEmployees) => {
+  const data = await getDocs(employeesCollectionRef);
+  setEmployees(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+};

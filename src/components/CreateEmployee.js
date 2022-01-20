@@ -1,18 +1,21 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "../styles/components/createemployee.scss";
 //PLUGIN FROM MY PERSONNAL NPM PACKAGE
 import { Modal } from "react-simple-modal-cb";
 // REACT IMPORTED PLUGIN #1
-import { optionsDepartement, optionsState } from "../plugins/selectOptions";
+import {
+  optionsDepartement,
+  optionsState,
+  customStyles,
+} from "../plugins/selectOptions";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 // REACT IMPORTED PLUGIN #2
 import Select from "react-select";
-import { customStyles } from "../plugins/selectCustomStyle";
 // FIREBASE
-import { db } from "../firebase";
-import { collection, addDoc } from "firebase/firestore";
+import { createEmployee } from "../firebase";
+// CSS
+import "../styles/components/createemployee.scss";
 
 export default function FormCreateEmployee() {
   const navigate = useNavigate();
@@ -31,28 +34,21 @@ export default function FormCreateEmployee() {
   const [showModal, setShowModal] = useState(false);
   const setText = "Employee created !";
 
-  // FIREBASE START
-  const employeesCollectionRef = collection(db, "employees");
-  const createEmployee = async () => {
-    await addDoc(employeesCollectionRef, {
-      firstName: firstName,
-      lastName: lastName,
-      birthDate: birthDate.toString(),
-      startDate: startDate.toString(),
-      street: street,
-      city: city,
-      usState: selectedOptionState.value,
-      zipCode: zipCode,
-      departement: selectedOptionDepartement.label,
-    });
-  };
-  // FIREBASE END
-
   // TRIGGER WHEN THE FORM SENDING
   const handleOnSubmit = (event) => {
     event.preventDefault();
     setShowModal(true);
-    createEmployee();
+    createEmployee(
+      firstName,
+      lastName,
+      birthDate,
+      startDate,
+      street,
+      city,
+      zipCode,
+      selectedOptionDepartement,
+      selectedOptionState
+    );
   };
 
   // TRIGGER WHEN THE MODAL CLOSING
