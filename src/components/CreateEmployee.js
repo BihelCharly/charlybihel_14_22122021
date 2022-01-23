@@ -77,24 +77,28 @@ export default function FormCreateEmployee() {
           id="last-name"
           onChange={(event) => setLastName(event.target.value)}
         />
-        <label htmlFor="date-of-birth">Date of Birth</label>
-        <DatePicker
-          required
-          id="date-of-birth"
-          dateFormat="dd/MM/yyyy"
-          selected={birthDate}
-          onChange={(date) => setBirthDate(date)}
-          placeholderText="Select..."
-        />
-        <label htmlFor="start-date">Start Date</label>
-        <DatePicker
-          required
-          id="start-date"
-          dateFormat="dd/MM/yyyy"
-          selected={startDate}
-          onChange={(date) => setStartDate(date)}
-          placeholderText="Select..."
-        />
+        <label htmlFor="date-of-birth">
+          Date of Birth
+          <DatePicker
+            required
+            id="date-of-birth"
+            dateFormat="dd/MM/yyyy"
+            selected={birthDate}
+            onChange={(date) => setBirthDate(date)}
+            placeholderText="Select..."
+          />
+        </label>
+        <label htmlFor="start-date">
+          Start Date
+          <DatePicker
+            required
+            id="start-date"
+            dateFormat="dd/MM/yyyy"
+            selected={startDate}
+            onChange={(date) => setStartDate(date)}
+            placeholderText="Select..."
+          />
+        </label>
         <fieldset className="address">
           <legend>Address</legend>
           <label htmlFor="street">Street</label>
@@ -113,16 +117,19 @@ export default function FormCreateEmployee() {
             type="text"
             onChange={(event) => setCity(event.target.value)}
           />
-          <label htmlFor="state">State</label>
-          <Select
-            required
-            name="state"
-            id="state"
-            defaultValue={selectedOptionState}
-            onChange={setSelectedOptionState}
-            options={optionsState}
-            styles={customStyles}
-          />
+          <label htmlFor="state">
+            State
+            <Select
+              required
+              name="state"
+              id="state"
+              type="text"
+              defaultValue={selectedOptionState}
+              onChange={setSelectedOptionState}
+              options={optionsState}
+              styles={customStyles}
+            />
+          </label>
           <label htmlFor="zip-code">Zip Code</label>
           <input
             required
@@ -131,15 +138,18 @@ export default function FormCreateEmployee() {
             onChange={(event) => setZipCode(event.target.value)}
           />
         </fieldset>
-        <label htmlFor="department">Department</label>
-        <Select
-          name="departement"
-          id="departement"
-          defaultValue={selectedOptionDepartement}
-          onChange={setSelectedOptionDepartement}
-          options={optionsDepartement}
-          styles={customStyles}
-        />
+        <label htmlFor="department">
+          Department
+          <Select
+            name="departement"
+            id="departement"
+            type="text"
+            defaultValue={selectedOptionDepartement}
+            onChange={setSelectedOptionDepartement}
+            options={optionsDepartement}
+            styles={customStyles}
+          />
+        </label>
         <button type="submit" className="saveButton">
           Save
         </button>

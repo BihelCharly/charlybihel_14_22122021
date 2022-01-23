@@ -30,6 +30,10 @@ input {
   border: white;
   padding: 10px 45px;
   border-radius: 20px;
+  input::placeholder {
+    color: rgba(46, 46, 46, 0.808);
+    opacity: 1;
+  }
 }
 
 #departement {
@@ -37,7 +41,7 @@ input {
 }
 
 legend {
-  color: rgb(112, 161, 112);
+  color: rgb(0, 0, 0);
 }
 
 #date-of-birth,
@@ -48,7 +52,7 @@ legend {
 .saveButton {
   color: white;
   font-size: 1.2rem;
-  background-color: rgb(93, 133, 93);
+  background-color: rgb(65, 93, 65);
   padding: 10px 50px;
   border-radius: 10px;
   border-color: white;

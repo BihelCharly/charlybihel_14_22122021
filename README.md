@@ -15,7 +15,7 @@ HRnet is a part of OpenClassrooms "Front End Developer" process.
 
 ## Installation
 
-For this project project I worked with [React](https://reactjs.org/) + [SASS](https://sass-lang.com/documentation) + [NodeJs](https://nodejs.org/en/) v.16.13.0 and [Yarn](https://classic.yarnpkg.com/en/docs/) v.1.22.17 and [Firebase](https://firebase.google.com/docs).
+For this project I worked with [React](https://reactjs.org/) + [SASS](https://sass-lang.com/documentation) + [NodeJs](https://nodejs.org/en/) v.16.13.0 and [Yarn](https://classic.yarnpkg.com/en/docs/) v.1.22.17 and [Firebase](https://firebase.google.com/docs).
 
 1. Install [NodeJs](https://nodejs.org/en/download/)
 2. Install [Yarn](https://classic.yarnpkg.com/lang/en/docs/install/#debian-stable)

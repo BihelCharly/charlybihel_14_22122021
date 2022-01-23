@@ -1,12 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, lazy, Suspense } from "react";
 import { Link } from "react-router-dom";
-// REACT IMPORTED PLUGIN #3
-import DataTable, { createTheme } from "react-data-table-component";
-import styled from "styled-components";
 // FROM FIREBASE CONFIG FILE
 import { getEmployees } from "../firebase";
 // CSS
 import "../styles/pages/employeelist.scss";
+// REACT IMPORTED PLUGIN #3
+import { createTheme } from "react-data-table-component";
+import styled from "styled-components";
+const DataTable = lazy(() => import("react-data-table-component"));
 
 export default function EmployeeList() {
   const [employees, setEmployees] = useState([]);
@@ -91,20 +92,22 @@ export default function EmployeeList() {
         <div id="employee-div" className="container-list">
           <h1>Current Employees</h1>
           <table id="employee-table" className="display"></table>
-          <DataTable
-            data={filteredDatas}
-            columns={columns}
-            persistTableHead
-            fixedHeader
-            fixedHeaderScrollHeight="800px"
-            subHeader
-            subHeaderComponent={subHeaderSearch}
-            pagination
-            paginationComponentOptions={paginationComponentOptions}
-            responsive={true}
-            theme="custom"
-            customStyles={customStyles}
-          />
+          <Suspense fallback={renderLoader()}>
+            <DataTable
+              data={filteredDatas}
+              columns={columns}
+              persistTableHead
+              fixedHeader
+              fixedHeaderScrollHeight="800px"
+              subHeader
+              subHeaderComponent={subHeaderSearch}
+              pagination
+              paginationComponentOptions={paginationComponentOptions}
+              responsive={true}
+              theme="custom"
+              customStyles={customStyles}
+            />
+          </Suspense>
           <Link to="/" from="/employees">
             Home
           </Link>
@@ -189,3 +192,9 @@ const customStyles = {
     },
   },
 };
+
+const renderLoader = () => (
+  <div className="loading">
+    <p>Loading</p>
+  </div>
+);

@@ -1,13 +1,22 @@
-import React from "react";
-import CreateEmployee from "../components/CreateEmployee";
+import React, { lazy, Suspense } from "react";
 import "../styles/pages/index.scss";
 
-export default function Index() {
-  return (
+const CreateEmployee = lazy(() => import("../components/CreateEmployee"));
+
+const Index = () => (
+  <Suspense fallback={renderLoader()}>
     <main>
       <section>
         <CreateEmployee />
       </section>
     </main>
-  );
-}
+  </Suspense>
+);
+
+const renderLoader = () => (
+  <div className="loading">
+    <p>Loading</p>
+  </div>
+);
+
+export default Index;
