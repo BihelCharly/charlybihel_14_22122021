@@ -1,10 +1,10 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import { Link } from "react-router-dom";
 // REACT IMPORTED PLUGIN #3
-import DataTable, { createTheme } from "react-data-table-component";
+import { createTheme } from "react-data-table-component";
 import styled from "styled-components";
 import "../styles/pages/employeelist.scss";
-
+const DataTable = lazy(() => import("react-data-table-component"));
 // TO GET DATAS FROM THE LOCAL STORAGE
 const getAndParseStorage = () => {
   let keys = Object.keys(localStorage),
@@ -20,9 +20,7 @@ export default function EmployeeList() {
   const filteredDatas = datas.filter(
     (item) =>
       item.lastName &&
-      item.lastName.toLowerCase() &&
-      item.firstName &&
-      item.firstName.toLowerCase().includes(filterText.toLowerCase())
+      item.lastName.toLowerCase().includes(filterText.toLowerCase())
   );
 
   // TRIGGER AND SEND BACK THE RESULTS FROM THE FILTER
@@ -90,20 +88,22 @@ export default function EmployeeList() {
         <div id="employee-div" className="container-list">
           <h1>Current Employees</h1>
           <table id="employee-table" className="display"></table>
-          <DataTable
-            data={filteredDatas}
-            columns={columns}
-            persistTableHead
-            fixedHeader
-            fixedHeaderScrollHeight="800px"
-            subHeader
-            subHeaderComponent={subHeaderSearch}
-            pagination
-            paginationComponentOptions={paginationComponentOptions}
-            responsive={true}
-            theme="custom"
-            customStyles={customStyles}
-          />
+          <Suspense fallback={renderLoader()}>
+            <DataTable
+              data={filteredDatas}
+              columns={columns}
+              persistTableHead
+              fixedHeader
+              fixedHeaderScrollHeight="800px"
+              subHeader
+              subHeaderComponent={subHeaderSearch}
+              pagination
+              paginationComponentOptions={paginationComponentOptions}
+              responsive={true}
+              theme="custom"
+              customStyles={customStyles}
+            />
+          </Suspense>
           <Link to="/" from="/employees">
             Home
           </Link>
@@ -188,3 +188,9 @@ const customStyles = {
     },
   },
 };
+
+const renderLoader = () => (
+  <div className="loading">
+    <p>Loading</p>
+  </div>
+);
