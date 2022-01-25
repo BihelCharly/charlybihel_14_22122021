@@ -1,21 +1,23 @@
-import React, { useState } from "react";
+// CSS
+import "../styles/components/createemployee.scss";
+import "react-datepicker/dist/react-datepicker.css";
+// REACT
+import React, { useState, lazy } from "react";
 import { useNavigate } from "react-router-dom";
+// FIREBASE
+import { createEmployee } from "../firebase";
 //PLUGIN FROM MY PERSONNAL NPM PACKAGE
 import { Modal } from "react-simple-modal-cb";
-// REACT IMPORTED PLUGIN #1
+// REACT IMPORTED PLUGIN
 import {
   optionsDepartement,
   optionsState,
   customStyles,
 } from "../plugins/selectOptions";
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
-// REACT IMPORTED PLUGIN #2
-import Select from "react-select";
-// FIREBASE
-import { createEmployee } from "../firebase";
-// CSS
-import "../styles/components/createemployee.scss";
+// REACT IMPORTED PLUGIN
+const DatePicker = lazy(() => import("react-datepicker"));
+// REACT IMPORTED PLUGIN
+const Select = lazy(() => import("react-select"));
 
 export default function FormCreateEmployee() {
   const navigate = useNavigate();

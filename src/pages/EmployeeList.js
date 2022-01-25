@@ -22,9 +22,7 @@ export default function EmployeeList() {
   const filteredDatas = employees.filter(
     (item) =>
       item.lastName &&
-      item.lastName.toLowerCase() &&
-      item.firstName &&
-      item.firstName.toLowerCase().includes(filterText.toLowerCase())
+      item.lastName.toLowerCase().includes(filterText.toLowerCase())
   );
 
   // TRIGGER AND SEND BACK THE RESULTS FROM THE FILTER
